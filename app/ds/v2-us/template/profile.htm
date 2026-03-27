@@ -1,0 +1,105 @@
+<html>
+<head>
+    <meta name="upperlink" content="http://flipnote.hatena.com/images/en-gb/ds/theme/camp100618/background.nbf">
+    <link rel="stylesheet" type="text/css" href="http://jeraldmemo.neocities.org/css/ds/camp100618.css">
+</head>
+<body>
+    <div align="center" class="head">
+        <img src="http://flipnote.hatena.com/images/ds/theme/camp100618/head.ntft" width="218" height="12">
+        <div class="prof_out">
+            <table width="216" border="0" cellspacing="0" cellpadding="0" class="profbox">
+                <tr>
+                    <td width="5"></td>
+                    <td align="right" width="50"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="5" rowspan="3"></td>
+                    <td rowspan="3" align="right">
+                        <div class="icon" width="50">
+                            <img src="<?=$user_icon_url?>" width="48" height="48">
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="username"><?=htmlspecialchars($username)?></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="http://flipnote.hatena.com/images/ds/spacer.npf" width="3" height="1">
+                        <img src="http://flipnote.hatena.com/images/ds/ranking.ntft" width="12" height="12">-
+                        <img src="http://flipnote.hatena.com/images/ds/spacer.npf" width="3" height="1">
+                        <img src="http://flipnote.hatena.com/images/ds/fans.ntft" width="12" height="12">
+                        <a href="/user/<?=$fsid?>/fans.uls">
+                            <span class="more-f"><?=$fan_count?></span>
+                        </a><br>
+                        <img src="http://flipnote.hatena.com/images/ds/spacer.npf" width="0" height="1">
+                        <span class="star0c">★</span><span class="star0c"><?=$star_count_yellow?></span>
+                        <span class="star1c">★</span><span class="star1"><?=$star_count_red?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div class="item-value">
+                            <div align="right">
+                                <a href="/user/<?=$fsid?>/detail">
+                                    <span class="more-f">See more</span>
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <img src="http://flipnote.hatena.com/images/ds/theme/camp100618/foot.ntft" width="218" height="5">
+    </div>
+    <div class="send" align="center">
+        <a href="/user/<?=$fsid?>/movies.uls">
+            <img src="http://flipnote.hatena.com/images/en-gb/ds/theme/camp100618/send.ntft" width="218" height="32" class="button">
+        </a>
+        <div align="right">
+            <a href="/user/<?=$fsid?>/movies.uls">See more</a>
+        </div>
+    </div>
+    <table width="226" border="0" cellspacing="0" cellpadding="0" class="detail">
+        <tr>
+            <td colspan="2">
+                <div class="hr"></div>
+            </td>
+        </tr>
+        <tr>
+            <th width="80">
+                <div class="item-term" align="left">Posted Comments</div>
+            </th>
+            <td width="146">
+                <div class="item-value" align="right"><?=$comment_count?></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="hr"></div>
+            </td>
+        </tr>
+        <tr>
+            <th width="80">
+                <div class="item-term" align="left">Starred Flipnotes</div>
+            </th>
+            <td width="146">
+                <div class="item-value" align="right">
+                    <a href="/user/<?=$fsid?>/favorite/movies.uls"><?=$starred_count?></a>
+                </div>
+            </td>
+        </tr>
+        </table>
+    
+    <div class="notice2">
+        <div align="left">
+            <img src="http://flipnote.hatena.com/images/ds/key.ntft" width="10" height="12"> <?=htmlspecialchars($username)?>'s FS-ID
+        </div>
+        <div align="right">
+            <span><?=$fsid?></span>
+        </div>
+    </div>
+</body>
+</html>
