@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# 1. Matches /user/FSID/movie/FLIPNOTEID
+# Example: /user/58B23040/movie/39F150_006
+RewriteRule ^user/([A-Z0-9]+)/movie/([A-Z0-9_]+)/?$ view.php?user=$1&fid=$2 [L,QSA]
+
+# 2. Matches just the user profile: /user/FSID/
+# Example: /user/58B23040/
+RewriteRule ^user/([A-Z0-9]+)/?$ profile.php?id=$1 [L,QSA]
