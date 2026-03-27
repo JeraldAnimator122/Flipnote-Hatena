@@ -1,9 +1,30 @@
+# ----------------------------------------------------------------------
+# Jeraldmemo.mooo.com Rewrite Rules
+# ----------------------------------------------------------------------
+
 RewriteEngine On
 
-# 1. Matches /user/FSID/movie/FLIPNOTEID
-# Example: /user/58B23040/movie/39F150_006
+# 1. FIX FOR BROKEN IMAGES/CSS
+# If the request is for a real file (like a .png or .css), don't rewrite it!
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# 2. THE FLIPNOTE VIEW PAGE
+# Matches: Jeraldmemo.mooo.com/user/{FSID}/movie/{FLIPNOTEID}
+# Internal: view.php?user={FSID}&fid={FLIPNOTEID}
 RewriteRule ^user/([A-Z0-9]+)/movie/([A-Z0-9_]+)/?$ view.php?user=$1&fid=$2 [L,QSA]
 
-# 2. Matches just the user profile: /user/FSID/
-# Example: /user/58B23040/
+# 3. THE USER PROFILE PAGE
+# Matches: Jeraldmemo.mooo.com/user/{FSID}
+# Internal: profile.php?id={FSID}
 RewriteRule ^user/([A-Z0-9]+)/?$ profile.php?id=$1 [L,QSA]
+
+# 4. REMOVE .PHP EXTENSION (Optional but looks professional)
+# This allows Jeraldmemo.mooo.com/search to work instead of search.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# 5. ERROR HANDLING
+# If someone types a bad URL, send them to your Hatena-style 404 page
+ErrorDocument 404 /404.php
